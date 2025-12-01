@@ -36,7 +36,113 @@ Copy the `hugo.toml` from the exampleSite folder to your root, or add this to yo
 theme = "celadon"
 ```
 
-## ⚙️ Configuration
+## 📘 User Guide: Customizing Your Site
+
+Celadon is designed to separate your **Content** (Markdown) from your **Homepage Layout** (Data).
+
+### 1. Project Structure
+Here is a map of what you should edit and what you can ignore.
+
+```text
+my-portfolio/
+├── hugo.toml                <-- ⚙️ CONFIG: Menu, Title, Section ordering
+├── content/                 <-- 📝 CONTENT: Your deep pages (Blogs, Papers)
+│   ├── study/               
+│   │   ├── _index.md        <-- Required for the section cover info
+│   │   └── math-note.md     <-- Actual content page
+│   └── _index.md            <-- Do not delete (Homepage entry point)
+├── data/                    <-- 🗂️ HOMEPAGE DATA: Content for the main page cards
+│   ├── news.yaml            <-- Matches "news" section
+│   ├── research.yaml        <-- Matches "research" section
+│   └── profile.yaml         <-- Your bio info
+├── static/                  <-- 🖼️ ASSETS: Images, PDFs
+│   └── images/              
+├── themes/                  <-- ⛔ THEME: Do not edit directly
+│   └── hugo-celadon/
+│       ├── images/          
+│       │   ├── tn.png       <-- Ignore (Required for Hugo Gallery)
+│       │   └── screenshot.png <-- Ignore (Required for Hugo Gallery)
+│       └── ...
+└── ...
+```
+### 2. Managing the Homepage
+
+The homepage is built dynamically based on your configuration.
+
+**Step 1: Define Sections** Open `hugo.toml`. Under `[params.homepage]`, the `sections` list determines what appears and in what order.
+
+````toml
+[params.homepage]
+  sections = ["hero", "news", "research", "writing"]
+````
+**Step 2: Create Matching Data Files** For every item in that list (e.g., `"writing"`), Hugo looks for a matching YAML file in the `data/` folder (e.g., `data/writing.yaml`).
+
+- *Note*: The naming is case-insensitive, but keeping them lowercase is recommended.
+
+**Step 3: Choose the Layout** In `hugo.toml`, tell Celadon how to render that section:
+
+```toml
+[params.homepage.writing]
+  enable = true
+  title = "Selected Writing"
+  layout = "grid"  # Options: "hero", "news", "cards", "grid"
+```
+
+### 3. Creating Deep Pages (Sub-pages)
+
+To link a Homepage Card (e.g., "Study Notes") to a list of actual articles:
+
+**1. Create the Folder Structure** Inside `content/`, create a folder that matches your topic. You must include an `_index.md` file for the list layout to work.
+
+```text
+content/
+└── study/
+    ├── _index.md       <-- The "List" page definition
+    ├── note-01.md
+    └── note-02.md
+```
+
+**2. Configure** `_index.md` This file defines the title and description users see when they click through.
+
+```markdown
+---
+title: "Study Notes"
+description: "My raw notes on math and code."
+layout: "list"
+---
+(Welcome text here...)
+```
+**3. Add Articles** Inside the same folder, add your individual notes or articles as separate Markdown files.
+
+```markdown
+---
+title: "Understanding Eigenvalues"
+date: 2025-11-20
+summary: "A deep dive into eigenvalues and their applications."
+image: "/images/EigenArt.png"
+tags: ["Math", "Linear Algebra"]
+---
+(Content of the article...)
+``` 
+**4. Link it from the Homepage** Open your data file (e.g., `data/writing.yaml`) and set the `link` property to the folder path.
+
+```yaml
+items:
+  - title: "Study Notes"
+    image: "/images/cover.jpg"
+    link: "/study/"   <-- This points to content/study/_index.md
+```
+
+### 4. System Files (What to Ignore)
+If you look inside themes/hugo-celadon/, you will see specific image files required for theme submission. You do not need to replace these unless you are forking the theme to release your own version.
+
+- images/screenshot.png: Used by the Hugo Theme Gallery to preview the theme.
+
+- images/tn.png: A thumbnail used by the Hugo Theme Gallery.
+
+- layouts/: The logic engine. Don't touch unless you are a developer modifying the core code.
+
+<!-- ## ⚙️ Configuration
 Celadon is configuration-driven. You can toggle and reorder sections in `hugo.toml`:
 
 ```toml
@@ -59,10 +165,10 @@ Celadon supports two distinct content patterns:
 
 - Direct Cards (Research/Builds): Items are displayed as cards with action buttons (PDF, Code, Demo). These link directly to external URLs or files.
 
-- Deep Categories (Writing/Misc): Items are displayed as a "Curator Grid." Clicking a category (e.g., "Study Notes") takes the user to a dedicated sub-page list.
+- Deep Categories (Writing/Misc): Items are displayed as a "Curator Grid." Clicking a category (e.g., "Study Notes") takes the user to a dedicated sub-page list. -->
 
 ## ⚖️ License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Yajie-Xu/hugo-celadon/blob/main/LICENSE.txt) file for details.
 
 ## 👩🏻‍💻 Author
-[Yajie Xu](https://yajiexu.com) &#124; [GitHub](https://github.com/Yajie-Xu)
+[Yajie Xu](https://yajiexu.com)
