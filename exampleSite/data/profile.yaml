@@ -11,9 +11,7 @@ highlights:
   - "Generative AI in Museum Curation"
   - "Digital Preservation & Ethics"
 links:
-  - label: "Google Scholar"
-    url: "#"
   - label: "Github"
-    url: "#"
-  - label: "Twitter"
+    url: "https://github.com/Yajie-Xu/hugo-celadon"
+  - label: "Google Scholar"
     url: "#"
