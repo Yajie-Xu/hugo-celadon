@@ -58,7 +58,7 @@ my-portfolio/
 ├── static/                  <-- 🖼️ ASSETS: Images, PDFs
 │   └── images/              
 ├── themes/                  <-- ⛔ THEME: Do not edit directly
-│   └── hugo-celadon/
+│   └── celadon/
 │       ├── images/          
 │       │   ├── tn.png       <-- Ignore (Required for Hugo Gallery)
 │       │   └── screenshot.png <-- Ignore (Required for Hugo Gallery)
@@ -92,7 +92,7 @@ The homepage is built dynamically based on your configuration.
 
 To link a Homepage Card (e.g., "Study Notes") to a list of actual articles:
 
-**1. Create the Folder Structure** Inside `content/`, create a folder that matches your topic. You must include an `_index.md` file for the list layout to work.
+**3.1. Create the Folder Structure** Inside `content/`, create a folder that matches your topic. You must include an `_index.md` file for the list layout to work.
 
 ```text
 content/
@@ -102,7 +102,7 @@ content/
     └── note-02.md
 ```
 
-**2. Configure** `_index.md` This file defines the title and description users see when they click through.
+**3.2. Configure** `_index.md` This file defines the title and description users see when they click through.
 
 ```markdown
 ---
@@ -112,7 +112,7 @@ layout: "list"
 ---
 (Welcome text here...)
 ```
-**3. Add Articles** Inside the same folder, add your individual notes or articles as separate Markdown files.
+**3.3. Add Articles** Inside the same folder, add your individual notes or articles as separate Markdown files.
 
 ```markdown
 ---
@@ -124,7 +124,7 @@ tags: ["Math", "Linear Algebra"]
 ---
 (Content of the article...)
 ``` 
-**4. Link it from the Homepage** Open your data file (e.g., `data/writing.yaml`) and set the `link` property to the folder path.
+**3.4. Link it from the Homepage** Open your data file (e.g., `data/writing.yaml`) and set the `link` property to the folder path.
 
 ```yaml
 items:
@@ -141,31 +141,6 @@ If you look inside themes/hugo-celadon/, you will see specific image files requi
 - images/tn.png: A thumbnail used by the Hugo Theme Gallery.
 
 - layouts/: The logic engine. Don't touch unless you are a developer modifying the core code.
-
-<!-- ## ⚙️ Configuration
-Celadon is configuration-driven. You can toggle and reorder sections in `hugo.toml`:
-
-```toml
-[params.homepage]
-  sections = ["hero", "news", "research", "builds", "writing", "misc"]
-
-  [params.homepage.hero]
-    enable = true
-    layout = "hero"
-
-  [params.homepage.research]
-    enable = true
-    layout = "cards"
-    title = "Selected Publications"
-```
-Refer to the full configuration options in `exampleSite/hugo.toml`.
-
-## 📚 Content Types
-Celadon supports two distinct content patterns:
-
-- Direct Cards (Research/Builds): Items are displayed as cards with action buttons (PDF, Code, Demo). These link directly to external URLs or files.
-
-- Deep Categories (Writing/Misc): Items are displayed as a "Curator Grid." Clicking a category (e.g., "Study Notes") takes the user to a dedicated sub-page list. -->
 
 ## ⚖️ License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Yajie-Xu/hugo-celadon/blob/main/LICENSE.txt) file for details.
