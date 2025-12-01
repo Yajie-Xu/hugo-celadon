@@ -62,7 +62,7 @@ Celadon supports two distinct content patterns:
 - Deep Categories (Writing/Misc): Items are displayed as a "Curator Grid." Clicking a category (e.g., "Study Notes") takes the user to a dedicated sub-page list.
 
 ## ⚖️ License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/Yajie-Xu/hugo-celadon/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Yajie-Xu/hugo-celadon/blob/main/LICENSE.txt) file for details.
 
 ## 👩🏻‍💻 Author
 [Yajie Xu](https://yajiexu.com) &#124; [GitHub](https://github.com/Yajie-Xu)
