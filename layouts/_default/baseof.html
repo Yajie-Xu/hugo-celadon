@@ -11,17 +11,16 @@
           <a href="/">{{ site.Title }}</a>
         </div>
         <div class="nav-links">
-          {{ $anchors := slice
-            (dict "href" "/" "label" "Home")
-            (dict "href" "/#about" "label" "About")
-            (dict "href" "/#news" "label" "News")
-            (dict "href" "/#research" "label" "Research")
-            (dict "href" "/#builds" "label" "Builds")
-            (dict "href" "/#writing" "label" "Writing")
-            (dict "href" "/#misc" "label" "Misc")
-          }}
-          {{ range $anchors }}
-            <a href="{{ .href }}">{{ .label }}</a>
+          <a href="/">Home</a>
+          {{ range $section := site.Params.homepage.sections }}
+            {{ $sectionStr := printf "%v" $section }}
+            {{ $sectionLc := lower $sectionStr }}
+            {{ $config := default dict (index site.Params.homepage $sectionStr) }}
+            {{ $enabled := cond (and $config (isset $config "enable")) $config.enable true }}
+            {{ if $enabled }}
+              {{ $label := default (humanize $sectionStr) $config.title }}
+              <a href="/#{{ $sectionLc }}">{{ $label }}</a>
+            {{ end }}
           {{ end }}
         </div>
         <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">

@@ -1,15 +1,30 @@
-- date: "Oct 2025"
-  detail: "Paper on adaptive carbon contracts accepted at *Econometrica*."
-  badges: ["New", "Paper"]
-- date: "Jul 2025"
-  detail: "Presented speculative finance studio at ACM Creativity & Cognition."
-  badges: ["Talk"]
-- date: "May 2025"
-  detail: "Awarded MIT Sloan Digital Economy Fellowship."
-  badges: ["Award"]
-- date: "Jan 2025"
-  detail: "Launched Morandi Lab, a student collective on creative economic storytelling."
-- date: "Jan 2024"
-  detail: "Launched Morandi Lab, a student collective on creative economic storytelling."
-- date: "Jan 2023"
-  detail: "Launched Morandi Lab, a student collective on creative economic storytelling."
+items:
+  - date: "Nov 2025"
+    detail: "Our paper on **'Neural Radiance Fields for Pottery'** was accepted to CVPR 2025! 🏺"
+    badges: ["New", "Paper"]
+  
+  - date: "Oct 2025"
+    detail: "Awarded the **National Digital Heritage Grant** ($50k) to expand our open-source pottery dataset."
+    badges: ["Award"]
+  
+  - date: "Sep 2025"
+    detail: "Released **Shard-Net v2.0**, featuring 3D voxel support and improved texture classification."
+    badges: ["Open Source", "Code"]
+  
+  - date: "Aug 2025"
+    detail: "Returning from fieldwork in Kyoto. We scanned over 500 Kiln site fragments using LiDAR."
+    badges: ["Fieldwork", "Data"]
+  
+  - date: "July 2025"
+    detail: "Invited Keynote Speaker at **Arch-Tech 2025** in Berlin: 'The Ethics of Digital Reconstruction'."
+    badges: ["Talk"]
+  
+  # --- Hidden initially ---
+  
+  - date: "June 2025"
+    detail: "Joined the Institute of Digital Heritage as a Postdoctoral Fellow."
+    badges: ["Career"]
+  
+  - date: "May 2025"
+    detail: "Defended my PhD Thesis: *'Algorithmic Stratigraphy: Machine Learning in the Trenches'.*"
+    badges: ["Milestone"]

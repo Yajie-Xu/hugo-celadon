@@ -1,7 +1,7 @@
 themesDir = "../.."
 baseURL = 'https://yajiexu.com/'
 languageCode = 'en-us'
-title = 'Yajie Xu'
+title = 'Alex Celadon'
 theme = 'celadon'
 enableRobotsTXT = true
 
@@ -11,7 +11,7 @@ email = 'hello@yajiexu.com'
 location = 'Cambridge, MA'
 
 [params.homepage]
-  sections = ["hero", "news", "research", "builds", "writing", "misc", "spark","photos"]
+  sections = ["hero", "news", "research", "writing"]
 
   [params.homepage.hero]
     enable = true
@@ -28,30 +28,11 @@ location = 'Cambridge, MA'
     layout = "cards"
     title = "Research"
 
-  [params.homepage.builds]
-    enable = true
-    layout = "cards"
-    title = "Builds"
-
   [params.homepage.writing]
     enable = true
     layout = "grid"
     title = "Writing"
 
-  [params.homepage.misc]
-    enable = true
-    layout = "grid"
-    title = "Misc"
-  
-  [params.homepage.spark]
-    enable = true
-    layout = "grid"
-    title = "Spark"
-
-  [params.homepage.photos]
-    enable = true
-    layout = "grid"
-    title = "Photos"
 
 [markup]
   [markup.goldmark]

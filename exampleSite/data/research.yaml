@@ -1,47 +1,47 @@
 papers:
-  - title: "Adaptive Subsidies for Low-Carbon Manufacturing"
-    date: "2025"
-    summary: >
-      Micro-macro evidence on how adaptive subsidy menus can accelerate industrial decarbonization
-      while redistributing co-benefits toward marginalized regions.
-    image: "/images/research/paper1.jpg"
-    tags: ["causal inference", "industrial policy", "climate"]
+  - title: "Reconstructing the Void: Inpainting Ancient Ceramics with GANs"
+    summary: "A novel approach to predicting missing geometry in broken artifacts using Generative Adversarial Networks trained on 10,000 museum samples."
+    image: "/images/ShanShui.png"
+    date: "2025-05-01"
     links:
       - label: "PDF"
-        url: "https://example.com/adaptive-subsidy.pdf"
+        url: "#"
       - label: "Code"
-        url: "https://github.com/yajiexu/decarbon"
-      - label: "Video"
-        url: "https://github.com/yajiexu/decarbon"
-  - title: "Narrative Frictions in Gig Labor Platforms"
-    date: "CHI 2024"
-    summary: >
-      Mixed-method study pairing platform transaction logs with narrative probes to expose the
-      risk-shedding mechanics of contemporary gig platforms.
-    image: "/images/research/paper2.jpg"
-    tags: ["platform economy", "story systems", "mixed methods"]
+        url: "#"
+
+  - title: "Stratigraphic Analysis via Unsupervised Clustering"
+    summary: "Using K-Means clustering to identify soil layers in high-resolution excavation photography, reducing manual classification time by 40%."
+    image: "/images/Morandi.png"
+    date: "2024-11-15"
     links:
       - label: "PDF"
-        url: "https://example.com/gig.pdf"
-      - label: "Code"
-        url: "https://github.com/yajiexu/gig-lab"
-  - title: "Materializing Carbon Futures"
-    date: "Design Studio 2023"
-    summary: >
-      Tactile negotiation kits that blend remote sensing data with craft to help climate councils grasp
-      uncertainty across long-run carbon futures.
-    image: "/images/research/paper3.jpg"
-    tags: ["speculative design", "data visualization"]
+        url: "#"
+
+  - title: "Automated Typology of Ming Dynasty Blue-and-White Porcelain"
+    summary: "A comparative study using Convolutional Neural Networks (CNNs) to distinguish between authentic imperial kilns and provincial imitations."
+    image: "/images/CeramicVases.png"
+    date: "2024-06-10"
     links:
       - label: "PDF"
-        url: "https://example.com/materializing.pdf"
-  - title: "hello Carbon Futures"
-    date: "Design Studio 2023"
-    summary: >
-      Tactile negotiation kits that blend remote sensing data with craft to help climate councils grasp
-      uncertainty across long-run carbon futures.
-    image: "/images/research/paper3.jpg"
-    tags: ["speculative design", "data visualization"]
+        url: "#"
+      - label: "Dataset"
+        url: "#"
+
+  # --- Hidden initially ---
+
+  - title: "The Digital Trowel: IoT Sensors in Active Excavation"
+    summary: "Deploying low-cost humidity and pressure sensors in excavation trenches to monitor environmental degradation in real-time."
+    image: "/images/ZenBrushstroke.png"
+    date: "2023-10-14"
     links:
       - label: "PDF"
-        url: "https://example.com/materializing.pdf"
+        url: "#"
+
+  - title: "Spectral Glaze: Analyzing Chemical Composition with Computer Vision"
+    summary: "Can RGB values predict chemical makeup? We correlate spectrometer data with high-res photography to estimate glaze recipes non-invasively."
+    image: "/images/Landscape.png"
+    date: "2023-09-01"
+    links:
+      - label: "PDF"
+        url: "#"
+

@@ -1,19 +1,19 @@
-name: "Yajie Xu"
-title: "PhD Candidate in Economics & Creative Computation"
+name: "Dr. Alex Celadon"
+title: "Computational Archaeologist & Data Scientist"
 summary: >
-  I study how data-rich policies shape inclusive growth, and I build human-centered tools that
-  make complex economic narratives legible. My work blends econometrics, visualization, and
-  speculative design to explore more just futures.
-affiliation: "Department of Economics · MIT"
+  I explore the intersection of ancient history and modern algorithms. My work applies 
+  computer vision and deep learning to reconstruct fragmented pottery, making the 
+  patterns of the past legible to the machines of the future.
+affiliation: "Postdoc Fellow at the Institute of Digital Heritage<br>Celadon Lab for Historical Data"
 profile_image: "/images/profile.png"
 highlights:
-  - "Model interpretability for macro policy"
-  - "Computational design for economic storytelling"
-  - "Data equity & measurement"
+  - "Computer Vision for Artifact Reconstruction"
+  - "Generative AI in Museum Curation"
+  - "Digital Preservation & Ethics"
 links:
-  - label: "Github"
-    url: "https://github.com/yajie-xu"
   - label: "Google Scholar"
-    url: "https://scholar.google.com/citations?user=sIpcnrwAAAAJ"
-  - label: "LinkedIn"
-    url: "https://www.linkedin.com/in/yajie-xu/"
+    url: "#"
+  - label: "Github"
+    url: "#"
+  - label: "Twitter"
+    url: "#"
