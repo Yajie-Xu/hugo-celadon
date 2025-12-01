@@ -1,4 +1,4 @@
-# Hugo Celadon 🍵
+# Celadon 🍵
 
 **An intellectual portfolio theme exploring the equilibrium between academic rigor and creative design.**
 
