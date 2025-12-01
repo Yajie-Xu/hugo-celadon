@@ -40,23 +40,22 @@
     <button id="scroll-top" aria-label="Go to Top">↑</button>
     
     <script>
+      // 1. Math Trigger
+      document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement === 'function') {
+          renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false},
+              {left: "\\(", right: "\\)", display: false},
+              {left: "\\[", right: "\\]", display: true}
+            ],
+            throwOnError : false
+          });
+        }
+      });
+      
       (function () {
-        const runMath = () => {
-          if (typeof renderMathInElement === "function") {
-            renderMathInElement(document.body, {
-              delimiters: [
-                { left: "$$", right: "$$", display: true },
-                { left: "$", right: "$", display: false },
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true },
-              ],
-              throwOnError: false,
-            });
-          }
-        };
-
-        window.addEventListener("load", runMath);
-
         document.querySelectorAll(".highlight").forEach(function (highlight) {
           const codeBlock = highlight.querySelector("td.lntd:last-child pre code");
           if (!codeBlock) return;
