@@ -1,0 +1,7 @@
+# Ignore the generated site
+exampleSite/public/
+exampleSite/resources/
+
+# Ignore system files
+.DS_Store
+.hugo_build.lock
