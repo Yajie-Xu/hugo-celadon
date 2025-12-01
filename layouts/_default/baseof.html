@@ -40,9 +40,12 @@
     <button id="scroll-top" aria-label="Go to Top">↑</button>
     
     <script>
-      // 1. Math Trigger
-      document.addEventListener("DOMContentLoaded", function() {
-        if (typeof renderMathInElement === 'function') {
+      // Math Trigger
+      const katexScript = document.getElementById("katex-render");
+      
+      if (katexScript) {
+        katexScript.addEventListener("load", () => {
+          // The script is definitely loaded now!
           renderMathInElement(document.body, {
             delimiters: [
               {left: "$$", right: "$$", display: true},
@@ -52,8 +55,11 @@
             ],
             throwOnError : false
           });
-        }
-      });
+        });
+      } else {
+        // Fallback if the ID isn't found (shouldn't happen)
+        console.error("KaTeX script not found.");
+      }
       
       (function () {
         document.querySelectorAll(".highlight").forEach(function (highlight) {
