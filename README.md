@@ -5,7 +5,7 @@
 ![celadon screenshot](https://github.com/Yajie-Xu/hugo-celadon/blob/main/images/screenshot.png?raw=true)
 
 
-**Hugo Celadon** is a clean, responsive, one-page portfolio theme designed for **Academics**, **Data Scientists**, and **Creative Technologists**. It balances a rigorous publication list with a soft, "Morandi" color palette and modern grid layouts.
+**Celadon** is a lightweight, responsive, one-page portfolio theme for [Hugo](https://gohugo.io). It is designed for **Academics**, **Data Scientists**, and **Creative Technologists**. It balances a rigorous publication list with a soft, "Morandi" color palette and modern grid layouts.
 
 ## ✨ Features
 
