@@ -1,14 +1,14 @@
 themesDir = "../.."
-baseURL = 'https://yajiexu.com/'
+baseURL = 'https://yajie-xu.github.io/hugo-celadon/'
 languageCode = 'en-us'
 title = 'Alex Celadon'
 theme = 'celadon'
 enableRobotsTXT = true
 
 [params]
-description = 'PhD candidate weaving rigorous economic research with playful design thinking.'
-email = 'hello@yajiexu.com'
-location = 'Cambridge, MA'
+  description = 'Computational Archaeologist weaving ancient history with modern algorithms.'
+  email = 'alex@example.com'
+  location = 'Tampa, USA'
 
 [params.homepage]
   sections = ["hero", "news", "research", "writing"]
