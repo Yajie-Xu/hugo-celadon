@@ -8,10 +8,10 @@
       <nav class="morandi-nav">
         <div class="brand">
           <span class="dot"></span>
-          <a href="{{ "/" | relURL }}">{{ site.Title }}</a>
+          <a href="{{ site.BaseURL }}">{{ site.Title }}</a>
         </div>
         <div class="nav-links">
-          <a href="{{ "/" | relURL }}">Home</a>
+          <a href="{{ site.BaseURL }}">Home</a>
           {{ range $section := site.Params.homepage.sections }}
             {{ $sectionStr := printf "%v" $section }}
             {{ $sectionLc := lower $sectionStr }}
@@ -19,7 +19,7 @@
             {{ $enabled := cond (and $config (isset $config "enable")) $config.enable true }}
             {{ if $enabled }}
               {{ $label := default (humanize $sectionStr) $config.title }}
-              <a href="{{ printf "/#%s" $sectionLc | relURL }}">{{ $label }}</a>
+              <a href="{{ printf "#%s" $sectionLc | absURL }}">{{ $label }}</a>
             {{ end }}
           {{ end }}
         </div>

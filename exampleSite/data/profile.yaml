@@ -5,7 +5,7 @@ summary: >
   computer vision and deep learning to reconstruct fragmented pottery, making the 
   patterns of the past legible to the machines of the future.
 affiliation: "Postdoc Fellow at the Institute of Digital Heritage<br>Celadon Lab for Historical Data"
-profile_image: "/images/profile.png"
+profile_image: "static/images/profile.png"
 highlights:
   - "Computer Vision for Artifact Reconstruction"
   - "Generative AI in Museum Curation"
