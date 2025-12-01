@@ -37,11 +37,12 @@
     <div id="listing-container" class="listing-grid view-card">
       {{ range $pages }}
         {{ $thumb := or .Params.thumbnail .Params.image "/images/profile.jpg" }}
+        {{ $thumbPath := strings.TrimPrefix "/" $thumb }}
         {{ $tags := .Params.tags | default (slice) }}
         <article class="listing-card" data-tags="{{ range $i, $tag := $tags }}{{ if $i }},{{ end }}{{ lower $tag }}{{ end }}">
           <div class="listing-thumb">
             <a href="{{ .RelPermalink }}">
-              <img src="{{ $thumb | relURL }}" alt="{{ .Title }}" loading="lazy">
+              <img src="{{ $thumbPath | relURL }}" alt="{{ .Title }}" loading="lazy">
             </a>
           </div>
 

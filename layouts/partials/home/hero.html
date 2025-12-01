@@ -1,7 +1,8 @@
 {{ $profile := site.Data.profile }}
 <header class="hero section-block">
+  {{ $profileImage := strings.TrimPrefix "/" $profile.profile_image }}
   <div class="hero-media">
-    <img src="{{ $profile.profile_image | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+    <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
   </div>
   <div id="{{ or .Section `hero` }}" class="hero-copy">
     <h1>{{ $profile.name }}</h1>

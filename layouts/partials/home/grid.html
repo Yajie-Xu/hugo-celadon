@@ -18,7 +18,8 @@
       {{ $url := default "#" .url }}
       {{ $isExternal := or (strings.HasPrefix $url "http://") (strings.HasPrefix $url "https://") }}
       {{ $href := cond $isExternal $url ($url | relURL) }}
-      <a class="category-card" href="{{ $href }}" style="background-image: url('{{ .image | relURL }}')" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
+      {{ $image := strings.TrimPrefix "/" .image }}
+      <a class="category-card" href="{{ $href }}" style="background-image: url('{{ $image | relURL }}')" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
         <div class="overlay">
           <h3>{{ .name }}</h3>
           <p>{{ .description }}</p>
