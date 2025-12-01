@@ -1,0 +1,47 @@
+papers:
+  - title: "Adaptive Subsidies for Low-Carbon Manufacturing"
+    date: "2025"
+    summary: >
+      Micro-macro evidence on how adaptive subsidy menus can accelerate industrial decarbonization
+      while redistributing co-benefits toward marginalized regions.
+    image: "/images/research/paper1.jpg"
+    tags: ["causal inference", "industrial policy", "climate"]
+    links:
+      - label: "PDF"
+        url: "https://example.com/adaptive-subsidy.pdf"
+      - label: "Code"
+        url: "https://github.com/yajiexu/decarbon"
+      - label: "Video"
+        url: "https://github.com/yajiexu/decarbon"
+  - title: "Narrative Frictions in Gig Labor Platforms"
+    date: "CHI 2024"
+    summary: >
+      Mixed-method study pairing platform transaction logs with narrative probes to expose the
+      risk-shedding mechanics of contemporary gig platforms.
+    image: "/images/research/paper2.jpg"
+    tags: ["platform economy", "story systems", "mixed methods"]
+    links:
+      - label: "PDF"
+        url: "https://example.com/gig.pdf"
+      - label: "Code"
+        url: "https://github.com/yajiexu/gig-lab"
+  - title: "Materializing Carbon Futures"
+    date: "Design Studio 2023"
+    summary: >
+      Tactile negotiation kits that blend remote sensing data with craft to help climate councils grasp
+      uncertainty across long-run carbon futures.
+    image: "/images/research/paper3.jpg"
+    tags: ["speculative design", "data visualization"]
+    links:
+      - label: "PDF"
+        url: "https://example.com/materializing.pdf"
+  - title: "hello Carbon Futures"
+    date: "Design Studio 2023"
+    summary: >
+      Tactile negotiation kits that blend remote sensing data with craft to help climate councils grasp
+      uncertainty across long-run carbon futures.
+    image: "/images/research/paper3.jpg"
+    tags: ["speculative design", "data visualization"]
+    links:
+      - label: "PDF"
+        url: "https://example.com/materializing.pdf"

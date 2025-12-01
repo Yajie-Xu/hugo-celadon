@@ -1,0 +1,45 @@
+builds:
+  - title: "Equilibrium Sketch"
+    summary: >
+      A rapid prototyping environment combining structural models with intuitive sliders to help policy
+      teams sketch counterfactuals in real-time briefings.
+    tags: ["react", "three.js", "pyodide"]
+    image: "/images/builds/build1.jpg"
+    links:
+      - label: "Demo"
+        url: "https://example.com/equilibrium"
+      - label: "Repo"
+        url: "https://github.com/yajiexu/equilibrium-sketch"
+  - title: "Mosaic Booth"
+    description: >
+      AI-assisted interview booth for field sites that translates qualitative prompts into structured
+      civic datasets powered by speech-to-text and embeddings.
+    tech: ["python", "whisper", "supabase"]
+    image: "/images/builds/build2.jpg"
+    links:
+      - label: "Demo"
+        url: "https://example.com/mosaic"
+      - label: "Repo"
+        url: "https://github.com/yajiexu/mosaic-booth"
+  - title: "Policy Loom"
+    description: >
+      Experimental notebook that weaves together vector databases and journalism-style storytelling to
+      help economists narrate complex datasets with custom layouts.
+    tech: ["sveltekit", "langchain", "sqlite"]
+    image: "/images/builds/build3.jpg"
+    links:
+      - label: "Demo"
+        url: "https://example.com/policy-loom"
+      - label: "Repo"
+        url: "https://github.com/yajiexu/policy-loom"
+  - title: "Policy MIT"
+    description: >
+      Experimental notebook that weaves together vector databases and journalism-style storytelling to
+      help economists narrate complex datasets with custom layouts.
+    tech: ["sveltekit", "langchain", "sqlite"]
+    image: "/images/builds/build3.jpg"
+    links:
+      - label: "Demo"
+        url: "https://example.com/policy-loom"
+      - label: "Repo"
+        url: "https://github.com/yajiexu/policy-loom"

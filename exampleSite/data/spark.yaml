@@ -1,0 +1,9 @@
+sparks:
+  - name: "Travel Journals"
+    description: "Slow itineraries, illustrated field notes."
+    image: "/images/categories/travel.jpg"
+    url: "/misc/travel-2024.md"
+  - name: "Art (soon)"
+    description: "Material explorations and textile studies."
+    image: "/images/categories/art.jpg"
+    url: "https://medium.com/@yajiexu/art"

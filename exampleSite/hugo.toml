@@ -1,0 +1,88 @@
+themesDir = "../.."
+baseURL = 'https://yajiexu.com/'
+languageCode = 'en-us'
+title = 'Yajie Xu'
+theme = 'celadon'
+enableRobotsTXT = true
+
+[params]
+description = 'PhD candidate weaving rigorous economic research with playful design thinking.'
+email = 'hello@yajiexu.com'
+location = 'Cambridge, MA'
+
+[params.homepage]
+  sections = ["hero", "news", "research", "builds", "writing", "misc", "spark","photos"]
+
+  [params.homepage.hero]
+    enable = true
+    layout = "hero"
+    title = "About"
+
+  [params.homepage.news]
+    enable = true
+    layout = "news"
+    title = "News"
+
+  [params.homepage.research]
+    enable = true
+    layout = "cards"
+    title = "Research"
+
+  [params.homepage.builds]
+    enable = true
+    layout = "cards"
+    title = "Builds"
+
+  [params.homepage.writing]
+    enable = true
+    layout = "grid"
+    title = "Writing"
+
+  [params.homepage.misc]
+    enable = true
+    layout = "grid"
+    title = "Misc"
+  
+  [params.homepage.spark]
+    enable = true
+    layout = "grid"
+    title = "Spark"
+
+  [params.homepage.photos]
+    enable = true
+    layout = "grid"
+    title = "Photos"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        enableInShortcodes = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [
+            ["\\[", "\\]"],
+            ["$$", "$$"]
+          ]
+          inline = [
+            ["\\(", "\\)"],
+            ["$", "$"]
+          ]
+  [markup.highlight]
+    style = "friendly"
+    noClasses = false
+    lineNos = true
+    guessSyntax = true
+
+# ---------------------------------------------------------
+# CASCADING DEFAULTS
+# This applies settings to ALL files in the 'content' folder
+# ---------------------------------------------------------
+
+[[cascade]]
+  layout = "single"      # 1. The Rule: Use single.html
+  [cascade._target]
+    path = "/**"         # 2. The Scope: Inside any folder (** = "Recursive" - go as deep as you want)
+    kind = "page"        # 3. The Filter: But ONLY for regular text files (not list nor home pages)

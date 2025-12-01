@@ -1,0 +1,24 @@
+{{ $profile := site.Data.profile }}
+<header id="about" class="hero section-block">
+  <div class="hero-media">
+    <img src="{{ $profile.profile_image | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+  </div>
+  <div class="hero-copy">
+    <h1>{{ $profile.name }}</h1>
+    <p class="meta">
+      {{ $profile.title }}<br>
+      <span class="meta-affiliation">{{ $profile.affiliation | safeHTML }}</span>
+    </p>
+    <p class="summary">{{ $profile.summary }}</p>
+    <ul class="highlight-list">
+      {{ range $profile.highlights }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+    <div class="hero-links">
+      {{ range $profile.links }}
+        <a href="{{ .url }}" class="text-link" target="_blank" rel="noopener">{{ .label }}</a>
+      {{ end }}
+    </div>
+  </div>
+</header>
