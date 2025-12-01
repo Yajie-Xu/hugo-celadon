@@ -21,7 +21,10 @@
         </div>
         <div class="card-footer">
           {{ range .links }}
-            <a class="chip-link" href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a>
+            {{ $link := .url }}
+            {{ $isExternal := or (strings.HasPrefix $link "http://") (strings.HasPrefix $link "https://") }}
+            {{ $href := cond $isExternal $link ($link | relURL) }}
+            <a class="chip-link" href="{{ $href }}" {{ if $isExternal }}target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>
           {{ end }}
         </div>
       </article>

@@ -1,6 +1,6 @@
 {{ define "main" }}
   <div class="article-shell">
-    <a class="article-back" href="{{ with .CurrentSection }}{{ .RelPermalink }}{{ else }}/{{ end }}">← Back</a>
+    <a class="article-back" href="{{ with .CurrentSection }}{{ .RelPermalink }}{{ else }}{{ site.Home.Permalink }}{{ end }}">← Back</a>
     <header class="article-head">
       <p class="article-date">{{ if .Date }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</p>
       <h1 class="article-title">{{ .Title }}</h1>
