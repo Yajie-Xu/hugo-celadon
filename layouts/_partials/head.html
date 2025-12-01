@@ -19,7 +19,6 @@
 {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">
 
-<link rel="stylesheet" href="{{ "vendor/katex/katex.min.css" | relURL }}">
-<script defer src="{{ "vendor/katex/katex.min.js" | relURL }}"></script>
-<script defer src="{{ "vendor/katex/auto-render.min.js" | relURL }}"
-  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\\\(',right:'\\\\)',display:false},{left:'\\\\[',right:'\\\\]',display:true}],throwOnError:false});"></script>
+<link rel="stylesheet" href="{{ "vendor/katex/katex.min.css" | absURL }}">
+<script defer src="{{ "vendor/katex/katex.min.js" | absURL }}"></script>
+<script defer src="{{ "vendor/katex/auto-render.min.js" | absURL }}"></script>

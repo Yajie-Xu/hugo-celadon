@@ -40,28 +40,41 @@
     <button id="scroll-top" aria-label="Go to Top">↑</button>
     
     <script>
-      // Math Trigger
-      const katexScript = document.getElementById("katex-render");
-      
-      if (katexScript) {
-        katexScript.addEventListener("load", () => {
-          // The script is definitely loaded now!
-          renderMathInElement(document.body, {
-            delimiters: [
-              {left: "$$", right: "$$", display: true},
-              {left: "$", right: "$", display: false},
-              {left: "\\(", right: "\\)", display: false},
-              {left: "\\[", right: "\\]", display: true}
-            ],
-            throwOnError : false
-          });
-        });
-      } else {
-        // Fallback if the ID isn't found (shouldn't happen)
-        console.error("KaTeX script not found.");
-      }
-      
       (function () {
+        const renderQueuedMath = () => {
+          const attempt = () => {
+            if (
+              typeof window !== "undefined" &&
+              typeof window.renderMathInElement === "function" &&
+              typeof window.katex !== "undefined"
+            ) {
+              window.renderMathInElement(document.body, {
+                delimiters: [
+                  { left: "$$", right: "$$", display: true },
+                  { left: "$", right: "$", display: false },
+                  { left: "\\(", right: "\\)", display: false },
+                  { left: "\\[", right: "\\]", display: true },
+                ],
+                throwOnError: false,
+              });
+              return true;
+            }
+            return false;
+          };
+          const tick = () => {
+            if (!attempt()) {
+              window.requestAnimationFrame(tick);
+            }
+          };
+          tick();
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", renderQueuedMath);
+        } else {
+          renderQueuedMath();
+        }
+
         document.querySelectorAll(".highlight").forEach(function (highlight) {
           const codeBlock = highlight.querySelector("td.lntd:last-child pre code");
           if (!codeBlock) return;
