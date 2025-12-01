@@ -22,10 +22,12 @@
         </div>
         <div class="card-footer">
           {{ range .links }}
-            {{ $link := .url }}
-            {{ $isExternal := or (strings.HasPrefix $link "http://") (strings.HasPrefix $link "https://") }}
-            {{ $href := cond $isExternal $link ($link | relURL) }}
-            <a class="chip-link" href="{{ $href }}" {{ if $isExternal }}target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>
+            {{ $dest := or .link .url }}
+            {{ if and (hasPrefix $dest "/") (not (hasPrefix $dest "//")) }}
+              <a class="chip-link" href="{{ $dest | relURL }}">{{ .label }}</a>
+            {{ else }}
+              <a class="chip-link" href="{{ $dest | safeURL }}" target="_blank" rel="noopener">{{ .label }}</a>
+            {{ end }}
           {{ end }}
         </div>
       </article>

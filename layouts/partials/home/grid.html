@@ -15,12 +15,12 @@
   </div>
   <div class="card-grid {{ if eq $section "misc" }}misc-grid{{ end }}">
     {{ range $items }}
-      {{ $link := default "#" (or .link .url) }}
+      {{ $dest := or .link .url }}
       {{ $image := strings.TrimPrefix "/" .image }}
-      {{ if and (hasPrefix $link "/") (not (hasPrefix $link "//")) }}
-        <a class="category-card" href="{{ $link | relURL }}" style="background-image: url('{{ $image | relURL }}')">
+      {{ if and (hasPrefix $dest "/") (not (hasPrefix $dest "//")) }}
+        <a href="{{ $dest | relURL }}" class="category-card" style="background-image: url('{{ $image | relURL }}')">
       {{ else }}
-        <a class="category-card" href="{{ $link | safeURL }}" target="_blank" rel="noopener" style="background-image: url('{{ $image | relURL }}')">
+        <a href="{{ $dest | safeURL }}" target="_blank" rel="noopener" class="category-card" style="background-image: url('{{ $image | relURL }}')">
       {{ end }}
         <div class="overlay">
           <h3>{{ .name }}</h3>
