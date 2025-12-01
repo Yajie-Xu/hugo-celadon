@@ -15,11 +15,13 @@
   </div>
   <div class="card-grid {{ if eq $section "misc" }}misc-grid{{ end }}">
     {{ range $items }}
-      {{ $url := default "#" .url }}
-      {{ $isExternal := or (strings.HasPrefix $url "http://") (strings.HasPrefix $url "https://") }}
-      {{ $href := cond $isExternal $url ($url | relURL) }}
+      {{ $link := default "#" (or .link .url) }}
       {{ $image := strings.TrimPrefix "/" .image }}
-      <a class="category-card" href="{{ $href }}" style="background-image: url('{{ $image | relURL }}')" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
+      {{ if and (hasPrefix $link "/") (not (hasPrefix $link "//")) }}
+        <a class="category-card" href="{{ $link | relURL }}" style="background-image: url('{{ $image | relURL }}')">
+      {{ else }}
+        <a class="category-card" href="{{ $link | safeURL }}" target="_blank" rel="noopener" style="background-image: url('{{ $image | relURL }}')">
+      {{ end }}
         <div class="overlay">
           <h3>{{ .name }}</h3>
           <p>{{ .description }}</p>

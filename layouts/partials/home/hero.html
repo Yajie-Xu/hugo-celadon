@@ -18,7 +18,12 @@
     </ul>
     <div class="hero-links">
       {{ range $profile.links }}
-        <a href="{{ .url }}" class="text-link" target="_blank" rel="noopener">{{ .label }}</a>
+        {{ $link := or .link .url }}
+        {{ if and (hasPrefix $link "/") (not (hasPrefix $link "//")) }}
+          <a href="{{ $link | relURL }}" class="text-link">{{ .label }}</a>
+        {{ else }}
+          <a href="{{ $link | safeURL }}" class="text-link" target="_blank" rel="noopener">{{ .label }}</a>
+        {{ end }}
       {{ end }}
     </div>
   </div>
