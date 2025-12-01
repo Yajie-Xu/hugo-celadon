@@ -1,0 +1,39 @@
+name: Deploy Demo Site
+
+on:
+  # Trigger on pushes to the main branch
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed to push to gh-pages branch
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true  # Fetch submodules if any
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        # CRITICAL LINE:
+        # 1. --source exampleSite: Builds the demo folder
+        # 2. --themesDir ../..: Tells Hugo the theme is actually the PARENT folder
+        # 3. --theme hugo-celadon: Sets the theme name explicitly
+        run: hugo --minify --source exampleSite --themesDir ../.. --theme hugo-celadon --baseURL https://${{ github.repository_owner }}.github.io/hugo-celadon/
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./exampleSite/public  # Deploy the result folder
