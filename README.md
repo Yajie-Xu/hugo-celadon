@@ -144,7 +144,54 @@ If you look inside themes/hugo-celadon/, you will see specific image files requi
 
 - layouts/: The logic engine. Don't touch unless you are a developer modifying the core code.
 
-## Rich Text in Profile + News
+## Rich Text & Custom Labels
+
+| Area | Field(s) | Rich Text Capabilities | Notes |
+| - | - | - | - |
+| Profile card (`data/profile.yaml`) | `title`, `summary`, `affiliation` | Inline HTML (`<br>`, `<em>`) + Markdown (`~~strike~~`, `**bold**`) | Rendered through `enrich-text`, so HTML/Markdown mixes safely. |
+| News timeline (`data/news.yaml`) | `detail` | Markdown links `[text](url)` + inline formatting | Badges stay plain strings; only `detail` is enriched. |
+| Research cards (`data/research.yaml`) | `summary`, `links`, `coauthors`, `coauthors_label` | Markdown summaries, standard YAML links, per-card label overrides | `coauthors_label`/`coauthorsLabel` replaces the default “Co-authors”. |
+
+#### Example Snippet for Profile 
+
+```yaml
+# Profile
+name: "Dr. Ada Sol"
+title: "Research Lead • AstroEconomics<br>M.S. • Applied AI"
+summary: >
+  Explorer of ~~boring~~ *bold* market dynamics on Mars. Enthusiastic about
+  cooperative agents and <strong>playful policy experiments</strong>.
+affiliation: "New Olympus University<br><em>Institute for Stellar Trade</em>"
+```
+#### Example Snippet for News
+
+```yaml
+# News Entry
+- date: "Jan 2026"
+  detail: "Presented joint work with [Ravi Zenith](https://example.com) on comet-futures at the [Galactic Finance Forum](https://example.org)."
+  badges: ["Talk"]
+```
+### #### Example Snippet for Cards
+
+```yaml
+# Research Card
+- title: "Agentic Hedging in Zero-G Ports"
+  summary: >
+    Simulates cargo-insurance strategies using cooperative RL pilots.
+  coauthors_label: "Collaborators"
+  coauthors:
+    - name: "Eli Vega"
+      url: "https://eli-vega.space"
+    - name: "Mira Chen"
+  image: "/images/research/zero-g.jpg"
+  tags: ["RL", "finance"]
+  links:
+    - label: "Preprint"
+      url: "https://example.com/zero-g.pdf"
+```
+
+
+<!-- ## Rich Text in Profile + News
 
 Both `data/profile.yaml` and `data/news.yaml` are rendered with `safeHTML`, so you can mix Markdown + inline HTML to highlight important bits.
 
@@ -178,7 +225,7 @@ highlights:
 - date: "Apr 2025"
   detail: "<span class=\"news-accent\">1st place</span> Best Overall at [HackUSF 2025](https://devpost.com/software/skin-scan)."
   badges: ["Award"]
-```
+``` -->
 
 ## ⚖️ License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Yajie-Xu/hugo-celadon/blob/main/LICENSE.txt) file for details.
