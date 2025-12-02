@@ -5,15 +5,16 @@
     <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
   </div>
   <div id="{{ or .Section `hero` }}" class="hero-copy">
-    <h1>{{ $profile.name }}</h1>
+    {{ $name := partial "utils/enrich-text.html" $profile.name | markdownify }}
+    <h1>{{ $name | safeHTML }}</h1>
     <p class="meta">
-      {{ $profile.title }}<br>
-      <span class="meta-affiliation">{{ $profile.affiliation | safeHTML }}</span>
+      {{ partial "utils/enrich-text.html" $profile.title | markdownify | safeHTML }}<br>
+      <span class="meta-affiliation">{{ partial "utils/enrich-text.html" $profile.affiliation | markdownify | safeHTML }}</span>
     </p>
-    <p class="summary">{{ $profile.summary }}</p>
+    <div class="summary">{{ partial "utils/enrich-text.html" $profile.summary | markdownify | safeHTML }}</div>
     <ul class="highlight-list">
       {{ range $profile.highlights }}
-        <li>{{ . }}</li>
+        <li>{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</li>
       {{ end }}
     </ul>
     <div class="hero-links">

@@ -16,10 +16,11 @@
   <div class="collapsible" data-expandable data-limit="{{ $limit }}">
     <div class="news-list" data-expandable-content>
       {{ range $items }}
+        {{ $detail := partial "utils/enrich-text.html" .detail }}
         <article class="news-item">
           <div class="news-date">{{ .date }}</div>
           <div class="news-detail">
-            <p>{{ .detail | markdownify }}</p>
+            <p>{{ $detail | markdownify | safeHTML }}</p>
             {{ with .badges }}
               <div class="news-badges">
                 {{ range . }}

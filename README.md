@@ -144,6 +144,42 @@ If you look inside themes/hugo-celadon/, you will see specific image files requi
 
 - layouts/: The logic engine. Don't touch unless you are a developer modifying the core code.
 
+## Rich Text in Profile + News
+
+Both `data/profile.yaml` and `data/news.yaml` are rendered with `safeHTML`, so you can mix Markdown + inline HTML to highlight important bits.
+
+### Supported Patterns
+
+| Purpose          | Syntax in YAML (raw text)                                           | Notes                              |
+|------------------|---------------------------------------------------------------------|------------------------------------|
+| **Bold**         | `detail: "**Accepted** to CVPR 2025."`                              | Standard Markdown bold             |
+| *Italic*         | `summary: "*Behavioral* + computational economics."`                | Standard Markdown italic           |
+| Hyperlink        | `detail: "Joint work with [Kazuma Takakura](https://kazumatakakura.github.io/)"` | Markdown links auto-styled         |
+| Highlight text   | `summary: "Exploring <mark>Bayesian incentives</mark> in markets."` | Uses hero highlight pill colors    |
+| Accent in news   | `detail: "<span class=\"news-accent\">1st Place</span> Best Overall"` | Renders in accent color for news only |
+| Line break       | `title: "Ph.D. Candidate • Economics<br>M.S. • Artificial Intelligence"` | Use `<br>` where you want the break |
+
+### Example
+
+```yaml
+# data/profile.yaml
+summary: >
+  Interdisciplinary researcher studying <mark>network economics</mark> and
+  <a href="/writing/">computational design</a>.
+highlights:
+  - "Co-led the <mark>Impact Lab</mark> fellowship."
+  - "Published *Bayesian Incentives* in **Econometrica**."
+
+# data/news.yaml
+- date: "Nov 2025"
+  detail: "Presented joint work with [Kazuma Takakura](https://kazumatakakura.github.io/) on innovation networks."
+  badges: ["Talk"]
+
+- date: "Apr 2025"
+  detail: "<span class=\"news-accent\">1st place</span> Best Overall at [HackUSF 2025](https://devpost.com/software/skin-scan)."
+  badges: ["Award"]
+```
+
 ## ⚖️ License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Yajie-Xu/hugo-celadon/blob/main/LICENSE.txt) file for details.
 

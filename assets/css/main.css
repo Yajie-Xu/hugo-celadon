@@ -6,6 +6,7 @@
   --color-primary: #7DA2A9;
   --color-secondary: #C6B7B2;
   --color-highlight: #C0564B;
+  --color-highlight-soft: rgba(192, 86, 75, 0.15);
   --color-muted: rgba(51, 51, 51, 0.65);
   --shadow-soft: 0 20px 45px rgba(107, 142, 155, 0.15);
 }
@@ -18,6 +19,7 @@ body[data-theme="dark"] {
   --color-primary: #8AB6BF;
   --color-secondary: #A89F91;
   --color-highlight: #e876a3;
+  --color-highlight-soft: rgba(232, 118, 163, 0.22);
   --color-muted: rgba(228, 228, 231, 0.7);
 }
 
@@ -195,6 +197,42 @@ body[data-theme="dark"] .morandi-nav {
   margin-bottom: 1.25rem;
 }
 
+.hero-copy .summary a,
+.hero-copy .highlight-list a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  transition: color 0.2s ease;
+}
+
+.hero-copy .summary a:hover,
+.hero-copy .highlight-list a:hover,
+.hero-copy .summary a:focus-visible,
+.hero-copy .highlight-list a:focus-visible {
+  color: var(--color-highlight);
+}
+
+.hero-copy mark,
+.hero-copy .highlight-list mark {
+  background-color: var(--color-highlight-soft);
+  color: var(--color-highlight);
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.4rem;
+}
+
+.news-detail mark {
+  background-color: var(--color-highlight-soft);
+  color: var(--color-highlight);
+  padding: 0.05rem 0.35rem;
+  border-radius: 0.4rem;
+}
+
+.text-accent {
+  color: var(--color-highlight);
+  font-weight: 600;
+}
+
 .highlight-list {
   padding-left: 1.1rem;
   margin: 0 0 1.25rem;
@@ -279,6 +317,19 @@ body[data-theme="dark"] .morandi-nav {
   font-family: "Merriweather", serif;
   line-height: 1.4;
   font-size: 0.95rem;
+}
+
+.news-detail a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color 0.2s ease;
+}
+
+.news-detail a:hover,
+.news-detail a:focus-visible {
+  color: var(--color-highlight);
 }
 
 .news-badges {
