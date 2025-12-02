@@ -443,6 +443,46 @@ body[data-theme="dark"] .morandi-nav {
   -webkit-line-clamp: unset;
 }
 
+.card-coauthors {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.4rem;
+  row-gap: 0.25rem;
+  line-height: 1.4;
+  align-items: baseline;
+}
+
+.card-coauthors .label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.card-coauthors .coauthor-list {
+  display: inline;
+  min-width: 0;
+}
+
+.card-coauthors .coauthor-link,
+.card-coauthors .coauthor-name {
+  color: inherit;
+}
+
+.card-coauthors .coauthor-link {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.card-coauthors .coauthor-link:hover,
+.card-coauthors .coauthor-link:focus-visible {
+  color: var(--color-primary);
+  border-bottom-style: solid;
+}
+
 .tag-row {
   display: flex;
   flex-wrap: wrap;
