@@ -171,7 +171,7 @@ affiliation: "New Olympus University<br><em>Institute for Stellar Trade</em>"
   detail: "Presented joint work with [Ravi Zenith](https://example.com) on comet-futures at the [Galactic Finance Forum](https://example.org)."
   badges: ["Talk"]
 ```
-### #### Example Snippet for Cards
+#### Example Snippet for Cards
 
 ```yaml
 # Research Card
