@@ -160,9 +160,9 @@ body[data-theme="dark"] .morandi-nav {
 
 .hero-media {
   float: right;
-  width: min(200px, 100%);
+  width: min(190px, 100%);
   aspect-ratio: 1;
-  margin: 0.3rem 0rem 1.25rem 6rem;
+  margin: 0.3rem 0rem 1.25rem 1.25rem;
   /* margin: top right bottom left;*/
 
 }
