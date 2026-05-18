@@ -4,22 +4,36 @@
   <div class="hero-media">
     <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
   </div>
-  <div id="{{ or .Section `hero` }}" class="hero-copy">
+  <div id="{{ or .Section `hero` }}" class="hero-copy hero-intro">
     {{ $name := partial "utils/enrich-text.html" $profile.name | markdownify }}
     <h1>{{ $name | safeHTML }}</h1>
     <p class="meta">
       {{ partial "utils/enrich-text.html" $profile.title | markdownify | safeHTML }}<br>
       <span class="meta-affiliation">{{ partial "utils/enrich-text.html" $profile.affiliation | markdownify | safeHTML }}</span>
     </p>
+  </div>
+  <div class="hero-copy hero-body">
     <div class="summary">{{ partial "utils/enrich-text.html" $profile.summary | markdownify | safeHTML }}</div>
     {{ with $profile.highlights_title }}
       <div class="highlights-title">{{ . }}</div>
     {{ end }}
-    <ul class="highlight-list">
-      {{ range $profile.highlights }}
-        <li>{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</li>
+    <div class="keyword-groups">
+      {{ with $profile.keyword_rows }}
+        {{ range . }}
+          <div class="keyword-row">
+            {{ range . }}
+              <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
+            {{ end }}
+          </div>
+        {{ end }}
+      {{ else }}
+        <div class="keyword-row">
+          {{ range or $profile.keywords $profile.highlights }}
+            <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
+          {{ end }}
+        </div>
       {{ end }}
-    </ul>
+    </div>
     <div class="hero-links">
       {{ range $profile.links }}
         {{ $link := or .link .url }}

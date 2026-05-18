@@ -151,27 +151,36 @@ body[data-theme="dark"] .morandi-nav {
 
 .hero {
   margin-top: 3rem;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 2rem;
-  align-items: center;
+  display: flow-root;
   padding: 3rem;
   border-radius: 24px;
   background: var(--color-surface);
   box-shadow: var(--shadow-soft);
 }
 
+.hero-media {
+  float: right;
+  width: min(180px, 100%);
+  aspect-ratio: 1;
+  margin: 0 0 1.25rem 2rem;
+}
+
 .hero-media img {
   width: 100%;
-  border-radius: 26px;
+  height: 100%;
+  border-radius: 50%;
   object-fit: cover;
   display: block;
-  box-shadow: var(--shadow-soft);
+  filter: drop-shadow(0 18px 28px rgba(69, 50, 39, 0.16));
+}
+
+.hero-intro {
+  margin-bottom: 1.6rem;
 }
 
 .hero-copy h1 {
-  font-size: clamp(2.5rem, 4vw, 3.2rem);
-  margin: 0.2rem 0;
+  font-size: clamp(2.25rem, 4vw, 2.9rem);
+  margin: 0 0 0.5rem;
 }
 
 .hero-copy .eyebrow {
@@ -182,7 +191,7 @@ body[data-theme="dark"] .morandi-nav {
 }
 
 .hero-copy .meta {
-  margin: 0 0 1rem;
+  margin: 0;
   font-weight: 500;
   line-height: 1.4;
 }
@@ -197,8 +206,7 @@ body[data-theme="dark"] .morandi-nav {
   margin-bottom: 1.25rem;
 }
 
-.hero-copy .summary a,
-.hero-copy .highlight-list a {
+.hero-copy .summary a {
   color: var(--color-primary);
   font-weight: 600;
   text-decoration: underline;
@@ -207,14 +215,12 @@ body[data-theme="dark"] .morandi-nav {
 }
 
 .hero-copy .summary a:hover,
-.hero-copy .highlight-list a:hover,
-.hero-copy .summary a:focus-visible,
-.hero-copy .highlight-list a:focus-visible {
+.hero-copy .summary a:focus-visible {
   color: var(--color-highlight);
 }
 
 .hero-copy mark,
-.hero-copy .highlight-list mark {
+.keyword-badge {
   background-color: var(--color-highlight-soft);
   color: var(--color-highlight);
   padding: 0.05rem 0.35rem;
@@ -242,15 +248,23 @@ body[data-theme="dark"] .morandi-nav {
   font-weight: 600;
 }
 
-.highlight-list {
-  padding-left: 1.1rem;
+.keyword-groups {
+  display: grid;
+  gap: 0.4rem;
   margin: 0 0 1.25rem;
   font-family: "Merriweather", serif;
-  color: var(--color-text);
 }
 
-.highlight-list li {
-  margin-bottom: 0.4rem;
+.keyword-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.keyword-badge {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.35;
 }
 
 .hero-links {
@@ -1404,8 +1418,13 @@ body[data-theme="dark"] .chroma .mf {
   }
 
   .hero {
-    grid-template-columns: 1fr;
     padding: 2rem;
+  }
+
+  .hero-media {
+    float: none;
+    max-width: 180px;
+    margin: 0 0 1.5rem;
   }
 
   .news-item {
