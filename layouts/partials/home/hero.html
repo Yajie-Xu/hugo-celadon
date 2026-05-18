@@ -14,26 +14,47 @@
   </div>
   <div class="hero-copy hero-body">
     <div class="summary">{{ partial "utils/enrich-text.html" $profile.summary | markdownify | safeHTML }}</div>
-    {{ with $profile.highlights_title }}
-      <div class="highlights-title">{{ . }}</div>
-    {{ end }}
-    <div class="keyword-groups">
-      {{ with $profile.keyword_rows }}
+    {{ with $profile.keyword_sections }}
+      <div class="keyword-sections">
         {{ range . }}
+          <div class="keyword-section">
+            {{ with .title }}
+              <div class="highlights-title">{{ . }}</div>
+            {{ end }}
+            <div class="keyword-groups">
+              {{ range .rows }}
+                <div class="keyword-row">
+                  {{ range . }}
+                    <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ else }}
+      {{ with $profile.highlights_title }}
+        <div class="highlights-title">{{ . }}</div>
+      {{ end }}
+      <div class="keyword-groups">
+        {{ with $profile.keyword_rows }}
+          {{ range . }}
+            <div class="keyword-row">
+              {{ range . }}
+                <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
+              {{ end }}
+            </div>
+          {{ end }}
+        {{ else }}
           <div class="keyword-row">
-            {{ range . }}
+            {{ range or $profile.keywords $profile.highlights }}
               <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
             {{ end }}
           </div>
         {{ end }}
-      {{ else }}
-        <div class="keyword-row">
-          {{ range or $profile.keywords $profile.highlights }}
-            <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
-          {{ end }}
-        </div>
-      {{ end }}
-    </div>
+      </div>
+    {{ end }}
     <div class="hero-links">
       {{ range $profile.links }}
         {{ $link := or .link .url }}

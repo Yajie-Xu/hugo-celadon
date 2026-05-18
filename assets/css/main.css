@@ -248,10 +248,15 @@ body[data-theme="dark"] .morandi-nav {
   font-weight: 600;
 }
 
+.keyword-sections {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 1.25rem;
+}
+
 .keyword-groups {
   display: grid;
   gap: 0.4rem;
-  margin: 0 0 1.25rem;
   font-family: "Merriweather", serif;
 }
 
