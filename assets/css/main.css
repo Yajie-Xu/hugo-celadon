@@ -160,9 +160,11 @@ body[data-theme="dark"] .morandi-nav {
 
 .hero-media {
   float: right;
-  width: min(180px, 100%);
+  width: min(230px, 100%);
   aspect-ratio: 1;
-  margin: 0 0 1.25rem 2rem;
+  margin: 0.3rem 0rem 1.25rem 6rem;
+  /* margin: top right bottom left;*/
+
 }
 
 .hero-media img {
@@ -862,10 +864,12 @@ body[data-theme="dark"] .tag {
 }
 
 /* Add this new rule */
-.article-content, 
+.article-content,
 .markdown-body {
-    max-width: 900px;  /* Keep text narrow for readability */
-    margin: 0 auto;    /* Center the text block inside the wide shell */
+  max-width: 900px;
+  /* Keep text narrow for readability */
+  margin: 0 auto;
+  /* Center the text block inside the wide shell */
 }
 
 .article-shell {
@@ -1230,6 +1234,7 @@ body[data-theme="light"] .chroma .ln,
 body[data-theme="light"] .chroma .ln span {
   color: #9da6b3;
 }
+
 body[data-theme="light"] .chroma .lnt {
   color: #9da6b3;
 }
@@ -1289,6 +1294,7 @@ body[data-theme="dark"] .chroma .ln,
 body[data-theme="dark"] .chroma .ln span {
   color: rgba(234, 238, 247, 0.55);
 }
+
 body[data-theme="dark"] .chroma .lnt {
   color: rgba(234, 238, 247, 0.55);
 }
@@ -1451,9 +1457,11 @@ body[data-theme="dark"] .chroma .mf {
     align-items: flex-start;
   }
 }
+
 .hidden {
   display: none !important;
 }
+
 .code-frame::-webkit-scrollbar-thumb,
 .chroma::-webkit-scrollbar-thumb,
 .chroma .lntable::-webkit-scrollbar-thumb,
@@ -1481,33 +1489,33 @@ body[data-theme="dark"] .chroma .mf {
 /* 1. Default (Card View) & List View */
 /* Ensure tags look good in the listing */
 .listing-card .tag-row {
-    margin-top: 0.8rem;
-    gap: 0.4rem;
+  margin-top: 0.8rem;
+  gap: 0.4rem;
 }
 
 .listing-card .tag {
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    /* Reuse your existing variables for consistency */
-    background: var(--color-surface-muted); 
-    color: var(--color-text);
-    border: 1px solid transparent;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  /* Reuse your existing variables for consistency */
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+  border: 1px solid transparent;
 }
 
 /* Optional: Make them pop slightly on hover */
 .listing-card .tag:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 /* 2. List View Specifics */
 /* In list view, maybe move tags to the right or keep them below title */
 .view-list .listing-card .tag-row {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 /* 3. Compact View (The "Grid" View) */
 /* HIDE tags here to keep it clean */
 .view-compact .listing-card .tag-row {
-    display: none !important;
+  display: none !important;
 }
