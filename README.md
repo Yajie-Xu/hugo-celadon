@@ -175,6 +175,15 @@ If you look inside themes/hugo-celadon/, you will see specific image files requi
 | News timeline (`data/news.yaml`) | `detail` | Markdown links `[text](url)` + inline formatting | Badges stay plain strings; only `detail` is enriched. |
 | Research cards (`data/research.yaml`) | `summary`, `links`, `coauthors`, `coauthors_label` | Markdown summaries, standard YAML links, per-card label overrides | `coauthors_label`/`coauthorsLabel` replaces the default “Co-authors”. |
 
+Common rich text patterns:
+
+| Style | YAML example | Result |
+| - | - | - |
+| Bold | `detail: "Released **Celadon v2.0**"` | Normal Markdown bold |
+| Accent text | `detail: "Released ~~Celadon v2.0~~"` | Theme accent color |
+| Highlight pill | `detail: "Released ==Celadon v2.0=="` | Soft highlighted mark |
+| Link | `detail: "Read the [docs](https://example.com)"` | Styled Markdown link |
+
 #### Example Snippet for Profile
 
 ```yaml
