@@ -1,7 +1,9 @@
 {{- $items := .items -}}
 {{- $limit := or .limit (len $items) -}}
+{{- $cardStyle := default "badge" .cardStyle -}}
+{{- $isAcademic := eq $cardStyle "academic" -}}
 <div class="collapsible" data-expandable data-limit="{{ $limit }}">
-  <div class="expandable-grid" data-expandable-content>
+  <div class="expandable-grid{{ if $isAcademic }} expandable-grid--academic{{ end }}" data-expandable-content>
     {{ range $items }}
       <article class="expandable-card">
         {{ $img := strings.TrimPrefix "/" .image }}
@@ -9,13 +11,12 @@
           <img src="{{ $img | relURL }}" alt="{{ .title }} thumbnail" loading="lazy">
         </div>
         <div class="card-content">
-          {{ with .meta }}<p class="card-meta">{{ . }}</p>{{ end }}
+          {{ with (or .meta .date) }}<p class="card-meta">{{ . }}</p>{{ end }}
           <h3>{{ .title }}</h3>
-          {{ with .summary }}<p class="card-summary">{{ . }}</p>{{ end }}
           {{ $coLabel := or .coauthors_label .coauthorsLabel "Co-authors" }}
           {{ with .coauthors }}
-            <p class="card-coauthors">
-              <span class="label">{{ $coLabel }}:</span>
+            <p class="card-coauthors{{ if $isAcademic }} card-coauthors--academic{{ end }}">
+              <span class="label">{{ $coLabel }}</span>
               <span class="coauthor-list">
                 {{ range $index, $co := . }}
                   {{ if gt $index 0 }}, {{ end }}
@@ -34,6 +35,20 @@
               </span>
             </p>
           {{ end }}
+          {{ if and $isAcademic .links }}
+            <p class="card-links-text">
+              {{ range $index, $linkItem := .links }}
+                {{ if gt $index 0 }}<span class="link-separator">·</span>{{ end }}
+                {{ $dest := or $linkItem.link $linkItem.url }}
+                {{ if and (hasPrefix $dest "/") (not (hasPrefix $dest "//")) }}
+                  <a href="{{ $dest | relURL }}">{{ $linkItem.label }}</a>
+                {{ else }}
+                  <a href="{{ $dest | safeURL }}" target="_blank" rel="noopener">{{ $linkItem.label }}</a>
+                {{ end }}
+              {{ end }}
+            </p>
+          {{ end }}
+          {{ with .summary }}<p class="card-summary">{{ . }}</p>{{ end }}
           {{ with .tags }}
             <div class="tag-row">
               {{ range . }}
@@ -42,16 +57,18 @@
             </div>
           {{ end }}
         </div>
-        <div class="card-footer">
-          {{ range .links }}
-            {{ $dest := or .link .url }}
-            {{ if and (hasPrefix $dest "/") (not (hasPrefix $dest "//")) }}
-              <a class="chip-link" href="{{ $dest | relURL }}">{{ .label }}</a>
-            {{ else }}
-              <a class="chip-link" href="{{ $dest | safeURL }}" target="_blank" rel="noopener">{{ .label }}</a>
+        {{ if not $isAcademic }}
+          <div class="card-footer">
+            {{ range .links }}
+              {{ $dest := or .link .url }}
+              {{ if and (hasPrefix $dest "/") (not (hasPrefix $dest "//")) }}
+                <a class="chip-link" href="{{ $dest | relURL }}">{{ .label }}</a>
+              {{ else }}
+                <a class="chip-link" href="{{ $dest | safeURL }}" target="_blank" rel="noopener">{{ .label }}</a>
+              {{ end }}
             {{ end }}
-          {{ end }}
-        </div>
+          </div>
+        {{ end }}
       </article>
     {{ end }}
   </div>

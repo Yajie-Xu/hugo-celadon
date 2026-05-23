@@ -175,7 +175,7 @@ If you look inside themes/hugo-celadon/, you will see specific image files requi
 | - | - | - | - |
 | Profile card (`data/profile.yaml`) | `title`, `summary`, `affiliation` | Inline HTML (`<br>`, `<em>`) + Markdown (`~~strike~~`, `**bold**`) | Rendered through `enrich-text`, so HTML/Markdown mixes safely. |
 | News timeline (`data/news.yaml`) | `detail` | Markdown links `[text](url)` + inline formatting | Badges stay plain strings; only `detail` is enriched. |
-| Research cards (`data/research.yaml`) | `summary`, `links`, `coauthors`, `coauthors_label` | Markdown summaries, standard YAML links, per-card label overrides | `coauthors_label`/`coauthorsLabel` replaces the default “Co-authors”. |
+| Research/cards (`data/research.yaml`, `data/builds.yaml`) | `summary`, `links`, `coauthors`, `coauthors_label` | Markdown summaries, standard YAML links, per-card label overrides | `coauthors_label`/`coauthorsLabel` replaces the default “Co-authors”. Use `card_style = "badge"` or `"academic"` in the section config. |
 
 Common rich text patterns:
 
@@ -220,6 +220,20 @@ Use `list` for the original bullet-style profile highlights. Use `keyword_sectio
 ```
 
 #### Example Snippet for Cards
+
+Card sections support two layouts in `hugo.toml`:
+
+```toml
+[params.homepage.research]
+  layout = "cards"
+  card_style = "academic" # Options: "badge" or "academic"
+
+[params.homepage.builds]
+  layout = "cards"
+  card_style = "badge"
+```
+
+`badge` keeps links as rounded action chips at the bottom of the card. `academic` moves collaborators and links below the title as quieter text links, so hover-expanded summaries do not move the main paper links.
 
 ```yaml
 # Research Card

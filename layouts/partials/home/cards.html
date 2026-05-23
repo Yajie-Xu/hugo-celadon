@@ -6,6 +6,7 @@
   {{ $items = slice }}
 {{ end }}
 {{ $limit := default 3 $config.limit }}
+{{ $cardStyle := default "badge" (or $config.card_style $config.cardStyle) }}
 <section id="{{ $section }}" class="section-block">
   <div class="section-heading">
     <span class="bar"></span>
@@ -15,5 +16,5 @@
   {{ range $items }}
     {{ $grid = $grid | append . }}
   {{ end }}
-  {{ partial "components/expandable-grid.html" (dict "items" $grid "limit" $limit) }}
+  {{ partial "components/expandable-grid.html" (dict "items" $grid "limit" $limit "cardStyle" $cardStyle) }}
 </section>
