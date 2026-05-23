@@ -175,7 +175,7 @@ If you look inside themes/hugo-celadon/, you will see specific image files requi
 | - | - | - | - |
 | Profile card (`data/profile.yaml`) | `title`, `summary`, `affiliation` | Inline HTML (`<br>`, `<em>`) + Markdown (`~~strike~~`, `**bold**`) | Rendered through `enrich-text`, so HTML/Markdown mixes safely. |
 | News timeline (`data/news.yaml`) | `detail` | Markdown links `[text](url)` + inline formatting | Badges stay plain strings; only `detail` is enriched. |
-| Research/cards (`data/research.yaml`, `data/builds.yaml`) | `summary`, `links`, `coauthors`, `coauthors_label` | Markdown summaries, standard YAML links, per-card label overrides | `coauthors_label`/`coauthorsLabel` replaces the default “Co-authors”. Use `card_style = "badge"` or `"academic"` in the section config. |
+| Research/cards (`data/research.yaml`, `data/builds.yaml`) | `summary`, `links`, `coauthors`, `coauthors_label` | Markdown summaries, standard YAML links, per-card label overrides | `coauthors_label`/`coauthorsLabel` replaces the default label exactly as written; no colon is added automatically. Use `card_style = "badge"` or `"academic"` in the section config. |
 
 Common rich text patterns:
 
@@ -221,7 +221,7 @@ Use `list` for the original bullet-style profile highlights. Use `keyword_sectio
 
 #### Example Snippet for Cards
 
-Card sections support two layouts in `hugo.toml`:
+Card sections support two visual styles in `hugo.toml`:
 
 ```toml
 [params.homepage.research]
@@ -233,14 +233,19 @@ Card sections support two layouts in `hugo.toml`:
   card_style = "badge"
 ```
 
-`badge` keeps links as rounded action chips at the bottom of the card. `academic` moves collaborators and links below the title as quieter text links, so hover-expanded summaries do not move the main paper links.
+`badge` is the original card style. Collaborators render as compact metadata inside the body, and links render as rounded action chips at the bottom of the card.
+
+`academic` is designed for publication-style lists. It places the date/year, collaborators, and links directly under the title as text metadata. Links stay above the hover-expanded summary, so the main paper/preprint targets do not shift when the summary expands. In light mode, this academic metadata uses the main text color for stronger readability; dark mode keeps the softer secondary color.
+
+`coauthors_label` is rendered exactly as provided. Use `"with"` for an author-style line, `"Collaborators"` for a project-style line, or any other label that fits the section. The theme does not append punctuation.
 
 ```yaml
 # Research Card
 - title: "Agentic Hedging in Zero-G Ports"
+  date: "2026"
   summary: >
     Simulates cargo-insurance strategies using cooperative RL pilots.
-  coauthors_label: "Collaborators"
+  coauthors_label: "with"
   coauthors:
     - name: "Eli Vega"
       url: "https://eli-vega.space"

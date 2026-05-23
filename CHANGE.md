@@ -1,5 +1,31 @@
 # Change Log
 
+## [2.1] - 2026-05-23
+
+### Added
+
+- Added selectable homepage card styles through `params.homepage.<section>.card_style`:
+
+  ```toml
+  [params.homepage.research]
+    layout = "cards"
+    card_style = "academic" # Options: "badge" or "academic"
+
+  [params.homepage.builds]
+    layout = "cards"
+    card_style = "badge"
+  ```
+
+- Added the `academic` card style for publication-like Research and Builds sections. Academic cards place date/year, collaborators, and links directly under the title as text metadata.
+- Kept the original rounded-chip card treatment available as `card_style = "badge"`.
+- Documented card style options and coauthor label behavior in `README.md`.
+
+### Changed
+
+- Changed `coauthors_label`/`coauthorsLabel` rendering so labels are output exactly as written. The theme no longer appends a colon automatically, which allows labels like `with`.
+- Moved links above the hover-expanded summary in `academic` cards so paper/preprint targets remain stable while summaries expand.
+- Darkened academic card metadata in light mode for better readability, including dates, coauthor labels, coauthor names, inline links, and separators.
+
 ## [2.0] - 2026-05-22
 
 ### Added
