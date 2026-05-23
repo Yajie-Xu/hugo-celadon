@@ -1,7 +1,10 @@
 {{ $profile := site.Data.profile }}
-<header class="hero section-block">
+{{ $profileLayout := default "modern" $profile.profile_layout | lower }}
+<header class="hero hero--{{ $profileLayout }} section-block">
   {{ $profileImage := strings.TrimPrefix "/" $profile.profile_image }}
-  <div class="hero-media">
+  {{ $profileImageStyleRaw := default "circle" $profile.profile_image_style | lower }}
+  {{ $profileImageStyle := cond (eq $profileImageStyleRaw "original") "rectangle" $profileImageStyleRaw }}
+  <div class="hero-media hero-media--{{ $profileImageStyle }}">
     <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
   </div>
   <div id="{{ or .Section `hero` }}" class="hero-copy hero-intro">
@@ -14,7 +17,9 @@
   </div>
   <div class="hero-copy hero-body">
     <div class="summary">{{ partial "utils/enrich-text.html" $profile.summary | markdownify | safeHTML }}</div>
+    {{ $hasKeywordSections := false }}
     {{ with $profile.keyword_sections }}
+      {{ $hasKeywordSections = true }}
       <div class="keyword-sections">
         {{ range . }}
           <div class="keyword-section">
@@ -33,27 +38,40 @@
           </div>
         {{ end }}
       </div>
-    {{ else }}
+    {{ end }}
+    {{ $listItems := or $profile.list $profile.highlights }}
+    {{ if $listItems }}
       {{ with $profile.highlights_title }}
         <div class="highlights-title">{{ . }}</div>
       {{ end }}
-      <div class="keyword-groups">
-        {{ with $profile.keyword_rows }}
-          {{ range . }}
+      <ul class="highlight-list">
+        {{ range $listItems }}
+          <li>{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      {{ if not $hasKeywordSections }}
+        {{ with $profile.highlights_title }}
+          <div class="highlights-title">{{ . }}</div>
+        {{ end }}
+        <div class="keyword-groups">
+          {{ with $profile.keyword_rows }}
+            {{ range . }}
+              <div class="keyword-row">
+                {{ range . }}
+                  <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
+                {{ end }}
+              </div>
+            {{ end }}
+          {{ else }}
             <div class="keyword-row">
-              {{ range . }}
+              {{ range $profile.keywords }}
                 <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
               {{ end }}
             </div>
           {{ end }}
-        {{ else }}
-          <div class="keyword-row">
-            {{ range or $profile.keywords $profile.highlights }}
-              <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
-            {{ end }}
-          </div>
-        {{ end }}
-      </div>
+        </div>
+      {{ end }}
     {{ end }}
     <div class="hero-links">
       {{ range $profile.links }}
