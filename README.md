@@ -4,6 +4,12 @@
 
 ![celadon screenshot](https://github.com/Yajie-Xu/hugo-celadon/blob/main/images/screenshot.png?raw=true)
 
+<!-- Scrolling from Right to Left (Default) -->
+<marquee direction="left" scrollamount="5">
+  <img src="https://github.com/Yajie-Xu/hugo-celadon/blob/main/images/screenshot.png?raw=true" />
+  <img src="https://github.com/Yajie-Xu/hugo-celadon/blob/main/images/screenshot2.png?raw=true"/>
+</marquee>
+
 ➤ Check out the [Live Demo](https://yajie-xu.github.io/hugo-celadon/) | ➤ View on [Hugo Themes](https://themes.gohugo.io/themes/hugo-celadon/)
 
 **Celadon** is a lightweight, responsive, one-page portfolio theme for [Hugo](https://gohugo.io). It is designed for **Academics**, **Data Scientists**, and **Creative Technologists**. It balances a rigorous publication list with a soft, "Morandi" color palette and modern grid layouts.
@@ -20,7 +26,9 @@
 ## 🚀 Installation
 
 ### 1. Initialize Hugo
+
 Inside your empty project folder:
+
 ```bash
 hugo new site my-portfolio
 cd my-portfolio
@@ -28,10 +36,13 @@ git init
 ```
 
 ### 2. Add Celadon Theme
+
 ```bash
 git submodule add [https://github.com/Yajie-Xu/hugo-celadon.git](https://github.com/Yajie-Xu/hugo-celadon.git) themes/celadon
-``` 
+```
+
 ### 3. Update Configuration
+
 Copy the `hugo.toml` from the exampleSite folder to your root, or add this to your existing config:
 
 ```toml
@@ -43,6 +54,7 @@ theme = "celadon"
 Celadon is designed to separate your **Content** (Markdown) from your **Homepage Layout** (Data).
 
 ### 1. Project Structure
+
 Here is a map of what you should edit and what you can ignore.
 
 ```text
@@ -67,6 +79,7 @@ my-portfolio/
 │       └── ...
 └── ...
 ```
+
 ### 2. Managing the Homepage
 
 The homepage is built dynamically based on your configuration.
@@ -77,9 +90,10 @@ The homepage is built dynamically based on your configuration.
 [params.homepage]
   sections = ["hero", "news", "research", "writing"]
 ````
+
 **Step 2: Create Matching Data Files** For every item in that list (e.g., `"writing"`), Hugo looks for a matching YAML file in the `data/` folder (e.g., `data/writing.yaml`).
 
-- *Note*: The naming is case-insensitive, but keeping them lowercase is recommended.
+* *Note*: The naming is case-insensitive, but keeping them lowercase is recommended.
 
 **Step 3: Choose the Layout** In `hugo.toml`, tell Celadon how to render that section:
 
@@ -89,6 +103,18 @@ The homepage is built dynamically based on your configuration.
   title = "Selected Writing"
   layout = "grid"  # Options: "hero", "news", "cards", "grid"
 ```
+
+For timeline-style sections that use the `news` layout, you can also set how many entries are visible before the “Show More” button appears:
+
+```toml
+[params.homepage.news]
+  enable = true
+  title = "Updates"
+  layout = "news"
+  limit = 5
+```
+
+The `limit` value controls the number of `data/news.yaml` items shown initially on the homepage. If there are more entries than the limit, Celadon hides the rest behind the expandable button.
 
 ### 3. Creating Deep Pages (Sub-pages)
 
@@ -114,6 +140,7 @@ layout: "list"
 ---
 (Welcome text here...)
 ```
+
 **3.3. Add Articles** Inside the same folder, add your individual notes or articles as separate Markdown files.
 
 ```markdown
@@ -125,7 +152,8 @@ image: "/images/EigenArt.png"
 tags: ["Math", "Linear Algebra"]
 ---
 (Content of the article...)
-``` 
+```
+
 **3.4. Link it from the Homepage** Open your data file (e.g., `data/writing.yaml`) and set the `link` property to the folder path.
 
 ```yaml
@@ -136,13 +164,14 @@ items:
 ```
 
 ### 4. System Files (What to Ignore)
+
 If you look inside themes/hugo-celadon/, you will see specific image files required for theme submission. You do not need to replace these unless you are forking the theme to release your own version.
 
-- images/screenshot.png: Used by the Hugo Theme Gallery to preview the theme.
+* images/screenshot.png: Used by the Hugo Theme Gallery to preview the theme.
 
-- images/tn.png: A thumbnail used by the Hugo Theme Gallery.
+* images/tn.png: A thumbnail used by the Hugo Theme Gallery.
 
-- layouts/: The logic engine. Don't touch unless you are a developer modifying the core code.
+* layouts/: The logic engine. Don't touch unless you are a developer modifying the core code.
 
 ## Rich Text & Custom Labels
 
@@ -152,7 +181,16 @@ If you look inside themes/hugo-celadon/, you will see specific image files requi
 | News timeline (`data/news.yaml`) | `detail` | Markdown links `[text](url)` + inline formatting | Badges stay plain strings; only `detail` is enriched. |
 | Research cards (`data/research.yaml`) | `summary`, `links`, `coauthors`, `coauthors_label` | Markdown summaries, standard YAML links, per-card label overrides | `coauthors_label`/`coauthorsLabel` replaces the default “Co-authors”. |
 
-#### Example Snippet for Profile 
+Common rich text patterns:
+
+| Style | YAML example | Result |
+| - | - | - |
+| Bold | `detail: "Released **Celadon v2.0**"` | Normal Markdown bold |
+| Accent text | `detail: "Released ~~Celadon v2.0~~"` | Theme accent color |
+| Highlight pill | `detail: "Released ==Celadon v2.0=="` | Soft highlighted mark |
+| Link | `detail: "Read the [docs](https://example.com)"` | Styled Markdown link |
+
+#### Example Snippet for Profile
 
 ```yaml
 # Profile
@@ -162,7 +200,20 @@ summary: >
   Explorer of ~~boring~~ *bold* market dynamics on Mars. Enthusiastic about
   cooperative agents and <strong>playful policy experiments</strong>.
 affiliation: "New Olympus University<br><em>Institute for Stellar Trade</em>"
+profile_image: "/images/profile.png"
+profile_layout: "modern" # Options: "modern" or "classic"
+profile_image_style: "circle" # Options: "circle" or "rectangle"
+list:
+  - "Bullet-style highlight"
+  - "Another highlight"
+keyword_sections:
+  - title: "Keyword Badge Section"
+    rows:
+      - ["Badge One", "Badge Two"]
 ```
+
+Use `list` for the original bullet-style profile highlights. Use `keyword_sections` for grouped badge rows. If both are present, both render: `keyword_sections` first, then `list`.
+
 #### Example Snippet for News
 
 ```yaml
@@ -171,6 +222,7 @@ affiliation: "New Olympus University<br><em>Institute for Stellar Trade</em>"
   detail: "Presented joint work with [Ravi Zenith](https://example.com) on comet-futures at the [Galactic Finance Forum](https://example.org)."
   badges: ["Talk"]
 ```
+
 #### Example Snippet for Cards
 
 ```yaml
@@ -189,7 +241,6 @@ affiliation: "New Olympus University<br><em>Institute for Stellar Trade</em>"
     - label: "Preprint"
       url: "https://example.com/zero-g.pdf"
 ```
-
 
 <!-- ## Rich Text in Profile + News
 
@@ -227,7 +278,7 @@ highlights:
   badges: ["Award"]
 ``` -->
 
-## 🤠 Favicon 
+## 🤠 Favicon
 
 To customize the favicon, add your `favicon.ico` files to the `static/` directory of your Hugo site. You can generate a favicon using online tools like [favicon.io](https://favicon.io/). The files' name are automactically genreated via the tool. The file structure should look like this:
 
@@ -243,7 +294,9 @@ static/
 ```
 
 ## ⚖️ License
+
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Yajie-Xu/hugo-celadon/blob/main/LICENSE.txt) file for details.
 
 ## 👩🏻‍💻 Author
+
 [Yajie Xu](https://yajiexu.com)

@@ -1,6 +1,10 @@
 items:
+  - date: "May 2026"
+    detail: "🔥🚀🎉 Released ==Celadon v2.0==, adding configurable profile layouts, selectable portrait styles, keyword badge sections, bullet-list highlights, and homepage update limits."
+    badges: ["Release", "Theme"]
+
   - date: "Nov 2025"
-    detail: "Our paper on **'Neural Radiance Fields for Pottery'** was accepted to CVPR 2025! 🏺"
+    detail: "Our paper on ~~'Neural Radiance Fields for Pottery'~~ was accepted to CVPR 2025! 🏺"
     badges: ["New", "Paper"]
   
   - date: "Oct 2025"

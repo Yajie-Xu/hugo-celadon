@@ -6,10 +6,14 @@ summary: >
   patterns of the past legible to the machines of the future.
 affiliation: "Postdoc Fellow at the Institute of Digital Heritage<br>Celadon Lab for Historical Data"
 profile_image: "images/profile.png"
-highlights:
+profile_layout: "classic" # Options: "modern" or "classic"
+profile_image_style: "rectangle" # Options: "circle" or "rectangle"
+
+list:
   - "Computer Vision for Artifact Reconstruction"
   - "Generative AI in Museum Curation"
   - "Digital Preservation & Ethics"
+
 links:
   - label: "Github"
     url: "https://github.com/Yajie-Xu/hugo-celadon"
