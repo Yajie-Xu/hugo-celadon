@@ -2,13 +2,9 @@
 
 **An intellectual portfolio theme exploring the equilibrium between academic rigor and creative design.**
 
-![celadon screenshot](https://github.com/Yajie-Xu/hugo-celadon/blob/main/images/screenshot.png?raw=true)
-
-<!-- Scrolling from Right to Left (Default) -->
-<marquee direction="left" scrollamount="5">
-  <img src="https://github.com/Yajie-Xu/hugo-celadon/blob/main/images/screenshot.png?raw=true" />
-  <img src="https://github.com/Yajie-Xu/hugo-celadon/blob/main/images/screenshot2.png?raw=true"/>
-</marquee>
+| Preview | Alternate Profile Layout |
+| - | - |
+| <img src="https://github.com/Yajie-Xu/hugo-celadon/blob/main/images/screenshot.png?raw=true" alt="Celadon theme preview" width="900"> | <img src="https://github.com/Yajie-Xu/hugo-celadon/blob/main/images/screenshot2.png?raw=true" alt="Celadon alternate profile layout preview" width="900"> |
 
 ➤ Check out the [Live Demo](https://yajie-xu.github.io/hugo-celadon/) | ➤ View on [Hugo Themes](https://themes.gohugo.io/themes/hugo-celadon/)
 
