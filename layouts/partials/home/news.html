@@ -2,11 +2,12 @@
 {{ $config := .Config }}
 {{ $title := default (humanize $section) (cond (and $config (isset $config "title")) (index $config "title") nil) }}
 {{ $limit := default 5 (cond (and $config (isset $config "limit")) (index $config "limit") nil) }}
+{{ $badgePalette := lower (default "morandi" (or $config.badge_palette $config.badgePalette)) }}
 {{ $items := .Data }}
 {{ if not $items }}
   {{ $items = slice }}
 {{ end }}
-<section id="{{ $section }}" class="news section-block">
+<section id="{{ $section }}" class="news section-block news--badge-palette-{{ $badgePalette }}">
   <div class="section-heading">
     <span class="bar"></span>
     <div>
@@ -24,7 +25,7 @@
             {{ with .badges }}
               <div class="news-badges">
                 {{ range . }}
-                  <span class="news-badge">{{ . }}</span>
+                  <span class="news-badge news-badge--{{ . | urlize }}">{{ . }}</span>
                 {{ end }}
               </div>
             {{ end }}

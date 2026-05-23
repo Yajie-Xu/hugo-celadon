@@ -22,6 +22,7 @@ enableRobotsTXT = true
     enable = true
     layout = "news"
     title = "News"
+    badge_palette = "morandi" # Options: "morandi" or "watercolor"
 
   [params.homepage.research]
     enable = true

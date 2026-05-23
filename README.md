@@ -108,9 +108,11 @@ For timeline-style sections that use the `news` layout, you can also set how man
   title = "Updates"
   layout = "news"
   limit = 5
+  badge_palette = "morandi" # Options: "morandi" or "watercolor"
 ```
 
 The `limit` value controls the number of `data/news.yaml` items shown initially on the homepage. If there are more entries than the limit, Celadon hides the rest behind the expandable button.
+The `badge_palette` value controls update badge colors. Use `"morandi"` for the original solid accent badges, or `"watercolor"` for softer translucent badge colors.
 
 ### 3. Creating Deep Pages (Sub-pages)
 
@@ -174,7 +176,7 @@ If you look inside themes/hugo-celadon/, you will see specific image files requi
 | Area | Field(s) | Rich Text Capabilities | Notes |
 | - | - | - | - |
 | Profile card (`data/profile.yaml`) | `title`, `summary`, `affiliation` | Inline HTML (`<br>`, `<em>`) + Markdown (`~~strike~~`, `**bold**`) | Rendered through `enrich-text`, so HTML/Markdown mixes safely. |
-| News timeline (`data/news.yaml`) | `detail` | Markdown links `[text](url)` + inline formatting | Badges stay plain strings; only `detail` is enriched. |
+| News timeline (`data/news.yaml`) | `detail` | Markdown links `[text](url)` + inline formatting | Badges stay plain strings; only `detail` is enriched. Badge colors use `badge_palette = "morandi"` or `"watercolor"` in the news section config. |
 | Research/cards (`data/research.yaml`, `data/builds.yaml`) | `summary`, `links`, `coauthors`, `coauthors_label` | Markdown summaries, standard YAML links, per-card label overrides | `coauthors_label`/`coauthorsLabel` replaces the default label exactly as written; no colon is added automatically. Use `card_style = "badge"` or `"academic"` in the section config. |
 
 Common rich text patterns:

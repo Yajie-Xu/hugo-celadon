@@ -444,6 +444,74 @@ body[data-theme="dark"] .morandi-nav {
   border-radius: 999px;
 }
 
+.news--badge-palette-watercolor .news-badge {
+  border: 1px solid rgba(104, 139, 155, 0.28);
+  background: rgba(178, 218, 230, 0.38);
+  color: #476976;
+}
+
+.news--badge-palette-watercolor .news-badge:nth-child(4n + 2),
+.news--badge-palette-watercolor .news-badge--award {
+  border-color: rgba(183, 145, 168, 0.28);
+  background: rgba(235, 202, 222, 0.42);
+  color: #75596d;
+}
+
+.news--badge-palette-watercolor .news-badge:nth-child(4n + 3),
+.news--badge-palette-watercolor .news-badge--publication,
+.news--badge-palette-watercolor .news-badge--paper {
+  border-color: rgba(149, 157, 113, 0.3);
+  background: rgba(219, 225, 184, 0.46);
+  color: #606a4d;
+}
+
+.news--badge-palette-watercolor .news-badge:nth-child(4n + 4),
+.news--badge-palette-watercolor .news-badge--talk {
+  border-color: rgba(196, 156, 111, 0.3);
+  background: rgba(244, 216, 177, 0.45);
+  color: #766044;
+}
+
+.news--badge-palette-watercolor .news-badge.news-badge--hackathon {
+  border-color: rgba(95, 151, 104, 0.34);
+  background: rgba(187, 225, 181, 0.5);
+  color: #4f7048;
+}
+
+body[data-theme="dark"] .news--badge-palette-watercolor .news-badge {
+  border-color: rgba(150, 202, 218, 0.34);
+  background: rgba(112, 172, 190, 0.22);
+  color: #b9dbe4;
+}
+
+body[data-theme="dark"] .news--badge-palette-watercolor .news-badge:nth-child(4n + 2),
+body[data-theme="dark"] .news--badge-palette-watercolor .news-badge--award {
+  border-color: rgba(218, 164, 196, 0.34);
+  background: rgba(176, 110, 150, 0.22);
+  color: #e5c3d8;
+}
+
+body[data-theme="dark"] .news--badge-palette-watercolor .news-badge:nth-child(4n + 3),
+body[data-theme="dark"] .news--badge-palette-watercolor .news-badge--publication,
+body[data-theme="dark"] .news--badge-palette-watercolor .news-badge--paper {
+  border-color: rgba(197, 207, 151, 0.34);
+  background: rgba(147, 162, 104, 0.22);
+  color: #dce5ba;
+}
+
+body[data-theme="dark"] .news--badge-palette-watercolor .news-badge:nth-child(4n + 4),
+body[data-theme="dark"] .news--badge-palette-watercolor .news-badge--talk {
+  border-color: rgba(232, 190, 132, 0.34);
+  background: rgba(190, 139, 80, 0.22);
+  color: #ecd2aa;
+}
+
+body[data-theme="dark"] .news--badge-palette-watercolor .news-badge.news-badge--hackathon {
+  border-color: rgba(146, 210, 146, 0.38);
+  background: rgba(92, 154, 92, 0.24);
+  color: #c1e8bd;
+}
+
 .collapsible {
   position: relative;
   overflow: visible;
