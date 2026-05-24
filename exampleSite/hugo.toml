@@ -9,6 +9,7 @@ enableRobotsTXT = true
   description = 'Computational Archaeologist weaving ancient history with modern algorithms.'
   email = 'alex@example.com'
   location = 'Tampa, USA'
+  color_palette = "morandi" # Options: "academic" or "morandi"
 
 [params.homepage]
   sections = ["hero", "news", "research", "writing"]
@@ -22,7 +23,6 @@ enableRobotsTXT = true
     enable = true
     layout = "news"
     title = "News"
-    badge_palette = "morandi" # Options: "morandi" or "watercolor"
 
   [params.homepage.research]
     enable = true

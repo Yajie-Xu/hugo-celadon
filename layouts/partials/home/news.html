@@ -2,7 +2,7 @@
 {{ $config := .Config }}
 {{ $title := default (humanize $section) (cond (and $config (isset $config "title")) (index $config "title") nil) }}
 {{ $limit := default 5 (cond (and $config (isset $config "limit")) (index $config "limit") nil) }}
-{{ $badgePalette := lower (default "morandi" (or $config.badge_palette $config.badgePalette)) }}
+{{ $badgePalette := lower (default "morandi" (or site.Params.color_palette site.Params.colorPalette)) }}
 {{ $items := .Data }}
 {{ if not $items }}
   {{ $items = slice }}

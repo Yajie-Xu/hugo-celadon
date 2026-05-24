@@ -83,9 +83,14 @@ The homepage is built dynamically based on your configuration.
 **Step 1: Define Sections** Open `hugo.toml`. Under `[params.homepage]`, the `sections` list determines what appears and in what order.
 
 ````toml
+[params]
+  color_palette = "morandi" # Options: "morandi" or "academic"
+
 [params.homepage]
   sections = ["hero", "news", "research", "writing"]
 ````
+
+Use `color_palette = "morandi"` for the original theme palette. Use `color_palette = "academic"` for softer watercolor news badges and muted clay-rose profile keyword badges in dark mode.
 
 **Step 2: Create Matching Data Files** For every item in that list (e.g., `"writing"`), Hugo looks for a matching YAML file in the `data/` folder (e.g., `data/writing.yaml`).
 
@@ -108,11 +113,9 @@ For timeline-style sections that use the `news` layout, you can also set how man
   title = "Updates"
   layout = "news"
   limit = 5
-  badge_palette = "morandi" # Options: "morandi" or "watercolor"
 ```
 
 The `limit` value controls the number of `data/news.yaml` items shown initially on the homepage. If there are more entries than the limit, Celadon hides the rest behind the expandable button.
-The `badge_palette` value controls update badge colors. Use `"morandi"` for the original solid accent badges, or `"watercolor"` for softer translucent badge colors.
 
 ### 3. Creating Deep Pages (Sub-pages)
 
@@ -176,7 +179,7 @@ If you look inside themes/hugo-celadon/, you will see specific image files requi
 | Area | Field(s) | Rich Text Capabilities | Notes |
 | - | - | - | - |
 | Profile card (`data/profile.yaml`) | `title`, `summary`, `affiliation` | Inline HTML (`<br>`, `<em>`) + Markdown (`~~strike~~`, `**bold**`) | Rendered through `enrich-text`, so HTML/Markdown mixes safely. |
-| News timeline (`data/news.yaml`) | `detail` | Markdown links `[text](url)` + inline formatting | Badges stay plain strings; only `detail` is enriched. Badge colors use `badge_palette = "morandi"` or `"watercolor"` in the news section config. |
+| News timeline (`data/news.yaml`) | `detail` | Markdown links `[text](url)` + inline formatting | Badges stay plain strings; only `detail` is enriched. Badge colors follow the global `color_palette` setting. |
 | Research/cards (`data/research.yaml`, `data/builds.yaml`) | `summary`, `links`, `coauthors`, `coauthors_label` | Markdown summaries, standard YAML links, per-card label overrides | `coauthors_label`/`coauthorsLabel` replaces the default label exactly as written; no colon is added automatically. Use `card_style = "badge"` or `"academic"` in the section config. |
 
 Common rich text patterns:

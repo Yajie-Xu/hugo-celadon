@@ -19,12 +19,21 @@
 - Added the `academic` card style for publication-like Research and Builds sections. Academic cards place date/year, collaborators, and links directly under the title as text metadata.
 - Kept the original rounded-chip card treatment available as `card_style = "badge"`.
 - Documented card style options and coauthor label behavior in `README.md`.
+- Added a global color palette toggle through `params.color_palette`:
+
+  ```toml
+  [params]
+    color_palette = "academic" # Options: "academic" or "morandi"
+  ```
+
+- Added the `academic` color palette, which pairs softer watercolor-style news badges with muted clay-rose profile keyword badges in dark mode.
 
 ### Changed
 
 - Changed `coauthors_label`/`coauthorsLabel` rendering so labels are output exactly as written. The theme no longer appends a colon automatically, which allows labels like `with`.
 - Moved links above the hover-expanded summary in `academic` cards so paper/preprint targets remain stable while summaries expand.
 - Darkened academic card metadata in light mode for better readability, including dates, coauthor labels, coauthor names, inline links, and separators.
+- Changed news badge styling to follow the global `color_palette` setting instead of a news-only badge palette option.
 
 ## [2.0] - 2026-05-22
 

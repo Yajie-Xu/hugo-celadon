@@ -3,7 +3,8 @@
   <head>
     {{ partial "head.html" . }}
   </head>
-  <body data-theme="light">
+  {{ $colorPalette := lower (default "morandi" (or site.Params.color_palette site.Params.colorPalette)) }}
+  <body data-theme="light" data-palette="{{ $colorPalette }}">
     <div class="page-shell">
       <nav class="morandi-nav">
         <div class="brand">
