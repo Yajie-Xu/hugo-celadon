@@ -79,7 +79,11 @@
         {{ if and (hasPrefix $link "/") (not (hasPrefix $link "//")) }}
           <a href="{{ $link | relURL }}" class="text-link">{{ .label }}</a>
         {{ else }}
-          <a href="{{ $link | safeURL }}" class="text-link" target="_blank" rel="noopener">{{ .label }}</a>
+          {{ if .icon }}
+            <a href="{{ $link | safeURL }}" class="text-link" target="_blank" rel="noopener"><i class="fa-brands fa-{{ lower .icon }}"</i>></a>
+          {{ else }}
+            <a href="{{ $link | safeURL }}" class="text-link" target="_blank" rel="noopener">{{ .label }}</a>
+          {{ end }}
         {{ end }}
       {{ end }}
     </div>
